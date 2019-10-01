@@ -13,7 +13,7 @@ namespace DSS19
 
         public void readDB()
         {
-            Trace.WriteLine("Ciao");
+            Trace.WriteLine("Controller ReadDB");
             p.readDB();
         }
     }

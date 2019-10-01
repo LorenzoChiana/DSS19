@@ -11,7 +11,7 @@ namespace DSS19
     {
         public void readDB()
         {
-            Trace.WriteLine("Controller readDB");
+            Trace.WriteLine("[PERSISTENCE] scritto qualcosa");
         }
     }
 }
