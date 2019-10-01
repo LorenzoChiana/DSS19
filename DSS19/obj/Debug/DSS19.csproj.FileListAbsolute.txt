@@ -27,3 +27,13 @@ D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.GenerateReso
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.CoreCompileInputs.cache
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.exe
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.pdb
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\EntityFramework.dll
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\EntityFramework.SqlServer.dll
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.dll
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.EF6.dll
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.Linq.dll
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\EntityFramework.xml
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\EntityFramework.SqlServer.xml
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.xml
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.dll.config
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.CopyComplete
