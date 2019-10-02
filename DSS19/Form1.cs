@@ -34,9 +34,52 @@ namespace DSS19
 
         private void readDB()
         {
-            //Trace.WriteLine("ciao ciao");
-            //txtConsole.AppendText();
-            c.readDB();
+            c.readDB(txtCustomer.Text);
+        }
+
+        private void deleteDBADOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteDB();
+        }
+
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            insertDB();
+        }
+
+        private void updateDBADOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateDB();
+        }
+
+        private void btnDeleteDB_Click(object sender, EventArgs e)
+        {
+            deleteDB();
+        }
+
+        private void deleteDB()
+        {
+            c.deleteDB(txtCustomer.Text);
+        }
+
+        private void insertDB()
+        {
+            c.insertDB(txtCustomer.Text);
+        }
+
+        private void updateDB()
+        {
+            c.updateDB(txtCustomer.Text);
+        }
+
+        private void btnInsertDB_Click(object sender, EventArgs e)
+        {
+            insertDB();
+        }
+
+        private void btnUpdateDB_Click(object sender, EventArgs e)
+        {
+            updateDB();
         }
     }
 

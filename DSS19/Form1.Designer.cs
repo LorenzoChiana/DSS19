@@ -28,14 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteDBADOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateDBADOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteDB = new System.Windows.Forms.ToolStripButton();
+            this.btnInsertDB = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdateDB = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.lblCustomer = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -58,7 +68,10 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readDBToolStripMenuItem});
+            this.readDBToolStripMenuItem,
+            this.deleteDBADOToolStripMenuItem,
+            this.insertToolStripMenuItem,
+            this.updateDBADOToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -66,14 +79,38 @@
             // readDBToolStripMenuItem
             // 
             this.readDBToolStripMenuItem.Name = "readDBToolStripMenuItem";
-            this.readDBToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.readDBToolStripMenuItem.Text = "Read DB";
+            this.readDBToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.readDBToolStripMenuItem.Text = "Read DB (ADO)";
             this.readDBToolStripMenuItem.Click += new System.EventHandler(this.readDBToolStripMenuItem_Click);
+            // 
+            // deleteDBADOToolStripMenuItem
+            // 
+            this.deleteDBADOToolStripMenuItem.Name = "deleteDBADOToolStripMenuItem";
+            this.deleteDBADOToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deleteDBADOToolStripMenuItem.Text = "Delete DB (ADO)";
+            this.deleteDBADOToolStripMenuItem.Click += new System.EventHandler(this.deleteDBADOToolStripMenuItem_Click);
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.insertToolStripMenuItem.Text = "Insert DB (ADO)";
+            this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
+            // 
+            // updateDBADOToolStripMenuItem
+            // 
+            this.updateDBADOToolStripMenuItem.Name = "updateDBADOToolStripMenuItem";
+            this.updateDBADOToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.updateDBADOToolStripMenuItem.Text = "Update DB (ADO)";
+            this.updateDBADOToolStripMenuItem.Click += new System.EventHandler(this.updateDBADOToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDB});
+            this.btnDB,
+            this.btnDeleteDB,
+            this.btnInsertDB,
+            this.btnUpdateDB});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(683, 25);
@@ -91,6 +128,36 @@
             this.btnDB.ToolTipText = "Read database data";
             this.btnDB.Click += new System.EventHandler(this.btnReadDB_Click);
             // 
+            // btnDeleteDB
+            // 
+            this.btnDeleteDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDeleteDB.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDB.Image")));
+            this.btnDeleteDB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteDB.Name = "btnDeleteDB";
+            this.btnDeleteDB.Size = new System.Drawing.Size(23, 22);
+            this.btnDeleteDB.Text = "toolStripButton1";
+            this.btnDeleteDB.Click += new System.EventHandler(this.btnDeleteDB_Click);
+            // 
+            // btnInsertDB
+            // 
+            this.btnInsertDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnInsertDB.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertDB.Image")));
+            this.btnInsertDB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnInsertDB.Name = "btnInsertDB";
+            this.btnInsertDB.Size = new System.Drawing.Size(23, 22);
+            this.btnInsertDB.Text = "toolStripButton1";
+            this.btnInsertDB.Click += new System.EventHandler(this.btnInsertDB_Click);
+            // 
+            // btnUpdateDB
+            // 
+            this.btnUpdateDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUpdateDB.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateDB.Image")));
+            this.btnUpdateDB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdateDB.Name = "btnUpdateDB";
+            this.btnUpdateDB.Size = new System.Drawing.Size(23, 22);
+            this.btnUpdateDB.Text = "toolStripButton1";
+            this.btnUpdateDB.Click += new System.EventHandler(this.btnUpdateDB_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -99,6 +166,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtCustomer);
+            this.splitContainer1.Panel1.Controls.Add(this.lblCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.txtConsole);
             // 
             // splitContainer1.Panel2
@@ -108,14 +177,33 @@
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 2;
             // 
+            // txtCustomer
+            // 
+            this.txtCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCustomer.Location = new System.Drawing.Point(86, 9);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.Size = new System.Drawing.Size(138, 21);
+            this.txtCustomer.TabIndex = 2;
+            // 
+            // lblCustomer
+            // 
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.Location = new System.Drawing.Point(12, 9);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(57, 15);
+            this.lblCustomer.TabIndex = 1;
+            this.lblCustomer.Text = "Cutomer:";
+            // 
             // txtConsole
             // 
-            this.txtConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtConsole.Location = new System.Drawing.Point(0, 0);
+            this.txtConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConsole.Location = new System.Drawing.Point(-2, 36);
             this.txtConsole.Multiline = true;
             this.txtConsole.Name = "txtConsole";
             this.txtConsole.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtConsole.Size = new System.Drawing.Size(227, 220);
+            this.txtConsole.Size = new System.Drawing.Size(227, 184);
             this.txtConsole.TabIndex = 0;
             this.txtConsole.WordWrap = false;
             // 
@@ -127,6 +215,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(452, 220);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // sqLiteCommandBuilder1
+            // 
+            this.sqLiteCommandBuilder1.DataAdapter = null;
+            this.sqLiteCommandBuilder1.QuoteSuffix = "]";
             // 
             // Form1
             // 
@@ -165,6 +258,15 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox txtConsole;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtCustomer;
+        private System.Windows.Forms.Label lblCustomer;
+        private System.Windows.Forms.ToolStripMenuItem deleteDBADOToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateDBADOToolStripMenuItem;
+        private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
+        private System.Windows.Forms.ToolStripButton btnDeleteDB;
+        private System.Windows.Forms.ToolStripButton btnInsertDB;
+        private System.Windows.Forms.ToolStripButton btnUpdateDB;
     }
 }
 

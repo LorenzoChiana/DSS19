@@ -11,10 +11,34 @@ namespace DSS19
     {
         private Persistence p = new Persistence();
 
-        public void readDB()
+        public void readDB(string custid)
         {
             Trace.WriteLine("Controller ReadDB");
-            p.readDB();
+            if(custid == "")
+            {
+                p.readDB();
+            } else
+            {
+                p.readDB(custid);
+            }
+        }
+
+        public void insertDB(string custid)
+        {
+            Trace.WriteLine("Controller InsertDB");
+            p.insertDB(custid);
+        }
+
+        public void updateDB(string custid)
+        {
+            Trace.WriteLine("Controller UpdateDB");
+            p.updateDB(custid);
+        }
+
+        public void deleteDB(string custid)
+        {
+            Trace.WriteLine("Controller DeleteDB");
+            p.deleteDB(custid);
         }
     }
 }
