@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data;
 using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace DSS19
 {
     class Persistence
     {
+        public string connectionString;
+
         public void readDB()
         {
             //lstQuant contiene i dati di quel cliente
@@ -18,13 +21,11 @@ namespace DSS19
 
             Trace.WriteLine("[PERSISTENCE] Inizio lettura dati");
 
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string sqLiteConnString = @"Data Source=" + dbpath + "; Version=3";
-
             try
             {
                 //creazione connessione
-                IDbConnection conn = new SQLiteConnection(sqLiteConnString);
+                //IDbConnection conn = new SQLiteConnection(connectionString);
+                IDbConnection conn = new SqlConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
@@ -37,7 +38,7 @@ namespace DSS19
                 IDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Trace.WriteLine(reader["id"] + " " + reader["customer"] + " " + reader["time"] + " " + reader["quant"]);
+                    //Trace.WriteLine(reader["id"] + " " + reader["customer"] + " " + reader["time"] + " " + reader["quant"]);
                     lstQuant.Add(Convert.ToInt32(reader["quant"]));
                 }
 
@@ -53,20 +54,20 @@ namespace DSS19
             Trace.WriteLine("Quantita': " + string.Join(",", lstQuant));
             Trace.WriteLine("[PERSISTENCE] Fine lettura dati");
         }
+
         public void readDB(string custid)
         {
             //lstQuant contiene i dati di quel cliente
             List<int> lstQuant = new List<int>();
 
             Trace.WriteLine("[PERSISTENCE] Inizio lettura dati");
-
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string sqLiteConnString = @"Data Source=" + dbpath + "; Version=3";
+            
 
             try
             {
                 //creazione connessione
-                IDbConnection conn = new SQLiteConnection(sqLiteConnString);
+                IDbConnection conn = new SQLiteConnection(connectionString);
+                //IDbConnection conn = new SqlConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
@@ -79,7 +80,7 @@ namespace DSS19
                 IDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Trace.WriteLine(reader["id"] + " " + reader["customer"] + " " + reader["time"] + " " + reader["quant"]);
+                    //Trace.WriteLine(reader["id"] + " " + reader["customer"] + " " + reader["time"] + " " + reader["quant"]);
                     lstQuant.Add(Convert.ToInt32(reader["quant"]));
                 }
 
@@ -100,13 +101,10 @@ namespace DSS19
         {
             Trace.WriteLine("[PERSISTENCE] Inizio cancellazione dati");
 
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string sqLiteConnString = @"Data Source=" + dbpath + "; Version=3";
-
             try
             {
                 //creazione connessione
-                IDbConnection conn = new SQLiteConnection(sqLiteConnString);
+                IDbConnection conn = new SQLiteConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
@@ -132,13 +130,10 @@ namespace DSS19
         {
             Trace.WriteLine("[PERSISTENCE] Inizio inserimento dati");
 
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string sqLiteConnString = @"Data Source=" + dbpath + "; Version=3";
-
             try
             {
                 //creazione connessione
-                IDbConnection conn = new SQLiteConnection(sqLiteConnString);
+                IDbConnection conn = new SQLiteConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
@@ -166,13 +161,10 @@ namespace DSS19
         {
             Trace.WriteLine("[PERSISTENCE] Inizio aggiornamento dati");
 
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string sqLiteConnString = @"Data Source=" + dbpath + "; Version=3";
-
             try
             {
                 //creazione connessione
-                IDbConnection conn = new SQLiteConnection(sqLiteConnString);
+                IDbConnection conn = new SQLiteConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
