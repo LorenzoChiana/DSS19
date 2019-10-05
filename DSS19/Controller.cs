@@ -14,8 +14,8 @@ namespace DSS19
         string connectionString;
         public Controller()
         {
-            bool isSQLite = false;
-            string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
+            //string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
+            string dbpath = @"..\..\..\DB\ordiniMI2018.sqlite";
 
             string sdb = ConfigurationManager.AppSettings["dbServer"];
             switch(sdb)
@@ -33,15 +33,6 @@ namespace DSS19
                     connectionString = ConfigurationManager.ConnectionStrings["RemoteSQLConn"].ConnectionString;
                     break;
             }
-                    /*if (isSQLite)
-            {
-                connectionString = ConfigurationManager.ConnectionStrings["SQLiteConn"].ConnectionString;
-                connectionString = connectionString.Replace("DBFILE", dbpath);
-            }
-            else
-            {
-                connectionString = ConfigurationManager.ConnectionStrings["RemoteSQLConn"].ConnectionString;
-            }*/
 
             P.connectionString = connectionString;
         }
