@@ -120,12 +120,12 @@
             // btnDB
             // 
             this.btnDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDB.Image = global::DSS19.Properties.Resources.db_icon;
+            this.btnDB.Image = ((System.Drawing.Image)(resources.GetObject("btnDB.Image")));
             this.btnDB.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDB.Name = "btnDB";
             this.btnDB.Size = new System.Drawing.Size(23, 22);
             this.btnDB.Text = "toolStripButton1";
-            this.btnDB.ToolTipText = "Read database data";
+            this.btnDB.ToolTipText = "Read DB data";
             this.btnDB.Click += new System.EventHandler(this.btnReadDB_Click);
             // 
             // btnDeleteDB
@@ -136,6 +136,7 @@
             this.btnDeleteDB.Name = "btnDeleteDB";
             this.btnDeleteDB.Size = new System.Drawing.Size(23, 22);
             this.btnDeleteDB.Text = "toolStripButton1";
+            this.btnDeleteDB.ToolTipText = "Delete DB data";
             this.btnDeleteDB.Click += new System.EventHandler(this.btnDeleteDB_Click);
             // 
             // btnInsertDB
@@ -146,6 +147,7 @@
             this.btnInsertDB.Name = "btnInsertDB";
             this.btnInsertDB.Size = new System.Drawing.Size(23, 22);
             this.btnInsertDB.Text = "toolStripButton1";
+            this.btnInsertDB.ToolTipText = "Insert DB data";
             this.btnInsertDB.Click += new System.EventHandler(this.btnInsertDB_Click);
             // 
             // btnUpdateDB
@@ -156,6 +158,7 @@
             this.btnUpdateDB.Name = "btnUpdateDB";
             this.btnUpdateDB.Size = new System.Drawing.Size(23, 22);
             this.btnUpdateDB.Text = "toolStripButton1";
+            this.btnUpdateDB.ToolTipText = "Update DB data";
             this.btnUpdateDB.Click += new System.EventHandler(this.btnUpdateDB_Click);
             // 
             // splitContainer1
