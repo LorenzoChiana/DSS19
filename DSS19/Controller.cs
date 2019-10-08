@@ -55,21 +55,18 @@ namespace DSS19
         public void insertDB(string custid)
         {
             Trace.WriteLine("Controller InsertDB");
-            //P.insertDB(custid);
             P.insertDB(factory, custid);
         }
 
         public void updateDB(string custid)
         {
             Trace.WriteLine("Controller UpdateDB");
-            //P.updateDB(custid);
             P.updateDB(factory, custid);
         }
 
         public void deleteDB(string custid)
         {
             Trace.WriteLine("Controller DeleteDB");
-            //P.deleteDB(custid);
             P.deleteDB(factory, custid);
         }
     }
