@@ -7,12 +7,25 @@ using System.Diagnostics;
 using System.Data;
 using System.Data.SQLite;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace DSS19
 {
     class Persistence
     {
         public string connectionString;
+
+        public void readDB(string factory)
+        {
+            string query = "select id, customer, time, quant from ordini";
+            runQuery(factory, query);
+        }
+
+        public void readDB(string factory, string custid)
+        {
+            string query = "select id, customer, time, quant from ordini where customer = '" + custid + "'";
+            runQuery(factory, query);
+        }
 
         public void readDB()
         {
@@ -24,8 +37,8 @@ namespace DSS19
             try
             {
                 //creazione connessione
-                //IDbConnection conn = new SQLiteConnection(connectionString);
-                IDbConnection conn = new SqlConnection(connectionString);
+                IDbConnection conn = new SQLiteConnection(connectionString);
+                //IDbConnection conn = new SqlConnection(connectionString);
                 conn.Open();
 
                 //creazione comando
@@ -55,7 +68,7 @@ namespace DSS19
             Trace.WriteLine("[PERSISTENCE] Fine lettura dati");
         }
 
-        public void readDB(string custid)
+        /*public void readDB(string factory, string custid)
         {
             //lstQuant contiene i dati di quel cliente
             List<int> lstQuant = new List<int>();
@@ -95,8 +108,42 @@ namespace DSS19
 
             Trace.WriteLine("Quantita': " + string.Join(",",lstQuant));
             Trace.WriteLine("[PERSISTENCE] Fine lettura dati");
+        }*/
+
+        public void runQuery(string factory, string query)
+        {
+            DbProviderFactory dbFactory = DbProviderFactories.GetFactory(factory);
+            using (DbConnection conn = dbFactory.CreateConnection())
+            {
+                try
+                {
+                    conn.ConnectionString = connectionString;
+                    conn.Open();
+                    DbCommand com = conn.CreateCommand();
+                    com.CommandText = query;
+                    DbDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                        Trace.WriteLine(this, reader["id"] + " " + reader["customer"] + " " + reader["time"] + " " + reader["quant"]);
+                    reader.Close();
+                    conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine(this, "[dataReader] Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (conn.State == ConnectionState.Open) conn.Close();
+                }
+            }
         }
-        
+
+        public void deleteDB(string factory, string custid)
+        {
+            string query = "delete from ordini where customer = '" + custid + "'";
+            runQuery(factory, query);
+        }
+
         public void deleteDB(string custid)
         {
             Trace.WriteLine("[PERSISTENCE] Inizio cancellazione dati");
@@ -124,6 +171,12 @@ namespace DSS19
             }
             
             Trace.WriteLine("[PERSISTENCE] Fine cancellazione dati");
+        }
+
+        public void insertDB(string factory, string custid)
+        {
+            string query = "insert into ordini (id, customer, time, quant) values (9999, '" + custid + "', 9999, 9999)";
+            runQuery(factory, query);
         }
 
         public void insertDB(string custid)
@@ -155,6 +208,12 @@ namespace DSS19
 
             //Trace.WriteLine("Quantita': " + string.Join(",", lstQuant));
             Trace.WriteLine("[PERSISTENCE] Fine inserimento dati");
+        }
+
+        public void updateDB(string factory, string custid)
+        {
+            string query = "update ordini set quant = 1 where customer = '" + custid + "'";
+            runQuery(factory, query);
         }
 
         public void updateDB(string custid)

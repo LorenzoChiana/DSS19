@@ -21,7 +21,6 @@ D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\DSS19.exe.config
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\DSS19.exe
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\DSS19.pdb
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csprojAssemblyReference.cache
-D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.Form1.resources
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.Properties.Resources.resources
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.GenerateResource.cache
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.CoreCompileInputs.cache
@@ -37,3 +36,4 @@ D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\EntityFramework.SqlServer
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.xml
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\bin\Debug\System.Data.SQLite.dll.config
 D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.csproj.CopyComplete
+D:\loren\Documents\workspace\SSD\DSS19\DSS19\obj\Debug\DSS19.View.resources

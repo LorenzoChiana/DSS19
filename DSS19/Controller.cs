@@ -11,26 +11,28 @@ namespace DSS19
     class Controller
     {
         private Persistence P = new Persistence();
-        string connectionString;
-        public Controller()
+        string connectionString, factory;
+
+        public Controller(string dbpath)
         {
             //string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
-            string dbpath = @"..\..\..\DB\ordiniMI2018.sqlite";
+            //string dbpath = @"..\..\..\DB\ordiniMI2018.sqlite";
 
             string sdb = ConfigurationManager.AppSettings["dbServer"];
-            switch(sdb)
+            switch (sdb)
             {
                 case "SQLiteConn":
                     connectionString = ConfigurationManager.ConnectionStrings["SQLiteConn"].ConnectionString;
                     connectionString = connectionString.Replace("DBFILE",dbpath);
-                    //factory = ConfigurationManager.ConnectionStrings["SQLiteConn"].ProviderName;
+                    factory = ConfigurationManager.ConnectionStrings["SQLiteConn"].ProviderName;
                     break;
                 case "LocalDbConn":
                     connectionString = ConfigurationManager.ConnectionStrings["LocalSqlServConn"].ConnectionString;
-                    //factory = ConfigurationManager.ConnectionStrings["LocalSqlServConn"].ProviderName;
+                    factory = ConfigurationManager.ConnectionStrings["LocalSqlServConn"].ProviderName;
                     break;
                 case "RemoteSQLConn":
                     connectionString = ConfigurationManager.ConnectionStrings["RemoteSQLConn"].ConnectionString;
+                    factory = ConfigurationManager.ConnectionStrings["LocalSqlServConn"].ProviderName;
                     break;
             }
 
@@ -43,29 +45,32 @@ namespace DSS19
             Trace.WriteLine("Controller ReadDB");
             if(custid == "")
             {
-                P.readDB();
+                P.readDB(factory);
             } else
             {
-                P.readDB(custid);
+                P.readDB(factory, custid);
             }
         }
 
         public void insertDB(string custid)
         {
             Trace.WriteLine("Controller InsertDB");
-            P.insertDB(custid);
+            //P.insertDB(custid);
+            P.insertDB(factory, custid);
         }
 
         public void updateDB(string custid)
         {
             Trace.WriteLine("Controller UpdateDB");
-            P.updateDB(custid);
+            //P.updateDB(custid);
+            P.updateDB(factory, custid);
         }
 
         public void deleteDB(string custid)
         {
             Trace.WriteLine("Controller DeleteDB");
-            P.deleteDB(custid);
+            //P.deleteDB(custid);
+            P.deleteDB(factory, custid);
         }
     }
 }

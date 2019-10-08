@@ -11,15 +11,26 @@ using System.Diagnostics;
 
 namespace DSS19
 {
-    public partial class Form1 : Form
+    public partial class View : Form
     {
-        private Controller c = new Controller();
-        TextBoxTraceListener _textBoxListener;
-        public Form1()
+        private Controller C;
+        TextBoxTraceListener _textBoxListener; // variabile classe Form
+
+        public View()
         {
             InitializeComponent();
+
             _textBoxListener = new TextBoxTraceListener(txtConsole); 
             Trace.Listeners.Add(_textBoxListener);
+
+            string dbPath = "";
+            OpenFileDialog OFD = new OpenFileDialog();
+            if (OFD.ShowDialog() == DialogResult.OK)
+            {
+                dbPath = OFD.FileName;
+                txtConsole.AppendText("Sqlite file name: " + dbPath + Environment.NewLine);
+            }
+            C = new Controller(dbPath);
         }
 
         private void readDBToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,7 +45,7 @@ namespace DSS19
 
         private void readDB()
         {
-            c.readDB(txtCustomer.Text);
+            C.readDB(txtCustomer.Text);
         }
 
         private void deleteDBADOToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,17 +70,17 @@ namespace DSS19
 
         private void deleteDB()
         {
-            c.deleteDB(txtCustomer.Text);
+            C.deleteDB(txtCustomer.Text);
         }
 
         private void insertDB()
         {
-            c.insertDB(txtCustomer.Text);
+            C.insertDB(txtCustomer.Text);
         }
 
         private void updateDB()
         {
-            c.updateDB(txtCustomer.Text);
+            C.updateDB(txtCustomer.Text);
         }
 
         private void btnInsertDB_Click(object sender, EventArgs e)
