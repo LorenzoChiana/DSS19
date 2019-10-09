@@ -11,12 +11,13 @@ namespace DSS19
     class Controller
     {
         private Persistence P = new Persistence();
-        string connectionString, factory;
+        string connectionString, factory, dbPath;
 
         public Controller(string dbpath)
         {
             //string dbpath = @"D:\loren\Documents\workspace\SSD\DSS19\DB\ordiniMI2018.sqlite";
             //string dbpath = @"..\..\..\DB\ordiniMI2018.sqlite";
+            dbPath = dbpath;
 
             string sdb = ConfigurationManager.AppSettings["dbServer"];
             switch (sdb)
@@ -68,6 +69,22 @@ namespace DSS19
         {
             Trace.WriteLine("Controller DeleteDB");
             P.deleteDB(factory, custid);
+        }
+
+        public string readCustomerListORM()
+        {
+            int numSerie = 12; // numero di customer che voglio prendere a caso
+            string strCustomers = P.readCustomerListORM(dbPath, numSerie);
+            Trace.WriteLine($"Clienti: { strCustomers}");
+            return strCustomers;
+        }
+
+        public string readCustomerListORM(string custid)
+        {
+            int numSerie = 12;
+            string strOrders = P.readCustomerListORM(dbPath, numSerie, custid);      
+            Trace.WriteLine($"Ordini di {custid}: {strOrders}");
+            return strOrders;
         }
     }
 }

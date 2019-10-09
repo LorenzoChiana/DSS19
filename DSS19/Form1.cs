@@ -92,6 +92,16 @@ namespace DSS19
         {
             updateDB();
         }
+
+        private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            C.readCustomerListORM();
+        }
+
+        private void readOrdiniCustomerORMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            C.readCustomerListORM(txtCustomer.Text);
+        }
     }
 
     public class TextBoxTraceListener : TraceListener
