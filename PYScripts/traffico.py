@@ -3,7 +3,7 @@ import pandas as pd
 from scipy import stats # to be used later
 import matplotlib.pyplot as plt
 import os
-os.chdir('D:/loren/Documents/workspace/SSD/DSS19/csv')
+os.chdir('../csv')
 
 df = pd.read_csv('traffico16.csv') # dataframe (series)
 npa = df['ago-01'].to_numpy() # numpy array
