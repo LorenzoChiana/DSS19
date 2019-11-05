@@ -1,7 +1,7 @@
 import pandas as pd, os
 from matplotlib import pyplot
 
-os.chdir('..\\csv')
+os.chdir('..\\..\\csv')
 series = pd.read_csv('FilRouge.csv', header=0, usecols=['sales'])
 X = series.values                                       
 train_size = int(len(X) * 0.66)                         

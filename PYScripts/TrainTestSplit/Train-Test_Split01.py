@@ -1,7 +1,7 @@
 import pandas as pd, os
 from matplotlib import pyplot
 
-os.chdir('..\\csv')
+os.chdir('..\\..\\csv')
 series = pd.read_csv('BoxJenkins.csv', header=0, usecols=['Passengers'])
 X = series.values                                       #array bidimensionale: 144 righe e 1 colonna
 train_size = int(len(X) * 0.66)                         #faccio 2/3 e 1/3 e metto l'indice alla fine dei 2/3
