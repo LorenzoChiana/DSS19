@@ -254,5 +254,37 @@ namespace DSS19
             return ret;
         }
 
+        public string readCutomerList(string dbpath, int n)
+        {
+            List<string> lstOrdini;
+            string ret = "Error reading DB";
+            try
+            {
+                //var ctx = new SQLiteDatabaseContext(dbpath);
+                using (var ctx = new SQLiteDatabaseContext(dbpath))
+                {
+                    lstOrdini = ctx.Database.SqlQuery<string>("SELECT distinct customer from ordini order by random()").ToList();
+                }
+
+                // legge solo alcuni clienti (si poteva fare tutto nella query)
+                List<string> lstOutStrings = new List<string>();
+
+                Random r = new Random(550);
+                while (lstOutStrings.Count < n)
+                {
+                    int randomIndex = r.Next(0, lstOrdini.Count); //Choose a random object in the list
+                    lstOutStrings.Add("'" + lstOrdini[randomIndex] + "'"); //add it to the new, random list
+                    lstOrdini.RemoveAt(randomIndex); //remove to avoid duplicates
+                }
+                ret = string.Join(",", lstOutStrings);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"Error: {ex.Message}");
+            }
+
+            return ret;
+
+        }
     }
 }
