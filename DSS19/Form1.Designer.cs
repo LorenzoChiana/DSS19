@@ -83,35 +83,35 @@
             // readDBToolStripMenuItem
             // 
             this.readDBToolStripMenuItem.Name = "readDBToolStripMenuItem";
-            this.readDBToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.readDBToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.readDBToolStripMenuItem.Text = "Read DB (ADO)";
             this.readDBToolStripMenuItem.Click += new System.EventHandler(this.readDBToolStripMenuItem_Click);
             // 
             // deleteDBADOToolStripMenuItem
             // 
             this.deleteDBADOToolStripMenuItem.Name = "deleteDBADOToolStripMenuItem";
-            this.deleteDBADOToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.deleteDBADOToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.deleteDBADOToolStripMenuItem.Text = "Delete DB (ADO)";
             this.deleteDBADOToolStripMenuItem.Click += new System.EventHandler(this.deleteDBADOToolStripMenuItem_Click);
             // 
             // insertToolStripMenuItem
             // 
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.insertToolStripMenuItem.Text = "Insert DB (ADO)";
             this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
             // 
             // updateDBADOToolStripMenuItem
             // 
             this.updateDBADOToolStripMenuItem.Name = "updateDBADOToolStripMenuItem";
-            this.updateDBADOToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.updateDBADOToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.updateDBADOToolStripMenuItem.Text = "Update DB (ADO)";
             this.updateDBADOToolStripMenuItem.Click += new System.EventHandler(this.updateDBADOToolStripMenuItem_Click);
             // 
             // readDBORMToolStripMenuItem
             // 
             this.readDBORMToolStripMenuItem.Name = "readDBORMToolStripMenuItem";
-            this.readDBORMToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.readDBORMToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.readDBORMToolStripMenuItem.Text = "Read DB clienti (ORM)";
             this.readDBORMToolStripMenuItem.Click += new System.EventHandler(this.readDBORMToolStripMenuItem_Click);
             // 
@@ -233,6 +233,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(562, 472);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
