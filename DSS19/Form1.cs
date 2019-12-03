@@ -59,7 +59,7 @@ namespace DSS19
             C.readClientiDB(dbOrdiniPath);
             bmp = await C.readCustomerOrdersChart(dbOrdiniPath);
             pictureBox1.Image = bmp;
-            //btnSARIMA.Enabled = true;
+            btnSARIMA.Enabled = true;
         }
 
         private void deleteDBADOToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,6 +105,18 @@ namespace DSS19
         private void btnUpdateDB_Click(object sender, EventArgs e)
         {
             updateDB();
+        }
+
+        private async void ARIMAClient(string cust)
+        {
+            //C.readDB(txtCustomer.Text);
+            bmp = await C.arimaCustomer(dbOrdiniPath, cust);
+            pictureBox1.Image = bmp;
+        }
+
+        private void btnARIMA_Click(object sender, EventArgs e)
+        {
+            ARIMAClient("'"+ txtCustomer.Text + "'");
         }
 
         private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)

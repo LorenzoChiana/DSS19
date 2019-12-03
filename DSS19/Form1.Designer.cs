@@ -48,6 +48,7 @@
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
+            this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -128,7 +129,8 @@
             this.btnDB,
             this.btnDeleteDB,
             this.btnInsertDB,
-            this.btnUpdateDB});
+            this.btnUpdateDB,
+            this.btnSARIMA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(847, 25);
@@ -242,6 +244,17 @@
             this.sqLiteCommandBuilder1.DataAdapter = null;
             this.sqLiteCommandBuilder1.QuoteSuffix = "]";
             // 
+            // btnSARIMA
+            // 
+            this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSARIMA.Enabled = false;
+            this.btnSARIMA.Image = ((System.Drawing.Image)(resources.GetObject("btnSARIMA.Image")));
+            this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSARIMA.Name = "btnSARIMA";
+            this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
+            this.btnSARIMA.Text = "ARIMA";
+            this.btnSARIMA.Click += new System.EventHandler(this.btnARIMA_Click);
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -290,6 +303,7 @@
         private System.Windows.Forms.ToolStripButton btnUpdateDB;
         private System.Windows.Forms.ToolStripMenuItem readDBORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readOrdiniCustomerORMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnSARIMA;
     }
 }
 

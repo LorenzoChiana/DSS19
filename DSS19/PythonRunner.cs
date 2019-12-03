@@ -335,7 +335,7 @@ namespace PyGAP2019
 
             strCommand = BuildArgumentString(pythonScriptsPath + "\\" + script, arguments);
 
-            string mode = "mem";
+            string mode = "dos";
 
             switch (mode)
             {

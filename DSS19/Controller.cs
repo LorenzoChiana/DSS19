@@ -13,14 +13,14 @@ namespace DSS19
     class Controller
     {
         private Persistence P = new Persistence();
-        string connectionString, factory, dbPath, pythonPath, pythonScriptPath, strCustomers;
+        string connectionString, factory, dbPath, pythonPath, pythonScriptsPath, strCustomers;
         PythonRunner pyRunner;
 
         public Controller(/*string _dbPath, */string _pyPath, string _pyScriptsPath)
         {
             //this.dbPath = _dbPath;
             this.pythonPath = _pyPath;
-            this.pythonScriptPath = _pyScriptsPath;
+            this.pythonScriptsPath = _pyScriptsPath;
             P = new Persistence();
             pyRunner = new PythonRunner(pythonPath, 20000);
         }
@@ -110,16 +110,38 @@ namespace DSS19
         public async Task<Bitmap> readCustomerOrdersChart(string dbPath)
         {
             Trace.WriteLine("getting the orders chart ... ");
-            pythonScriptPath = System.IO.Path.GetFullPath(pythonScriptPath);
+            pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
 
             try
             {
                 Bitmap bmp = await pyRunner.getImageAsync(
-                    pythonScriptPath,
+                    pythonScriptsPath,
                     "chartOrders.py",
-                    pythonScriptPath,
+                    pythonScriptsPath,
                     dbPath,
                     strCustomers);
+                return bmp;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine(e.ToString());
+                return null;
+            }
+        }
+
+        public async Task<Bitmap> arimaCustomer(string dbPath, string cust)
+        {
+            Trace.WriteLine("getting the orders chart ... ");
+            pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
+
+            try
+            {
+                Bitmap bmp = await pyRunner.getImageAsync(
+                    pythonScriptsPath,
+                    "arima_forecast.py",
+                    pythonScriptsPath,
+                    dbPath,
+                    cust);
                 return bmp;
             }
             catch (Exception e)
