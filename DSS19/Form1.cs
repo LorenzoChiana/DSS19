@@ -116,7 +116,7 @@ namespace DSS19
 
         private void btnARIMA_Click(object sender, EventArgs e)
         {
-            ARIMAClient("'"+ txtCustomer.Text + "'");
+            ARIMAClient("'" + txtCustomer.Text + "'");
         }
 
         private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)

@@ -39,16 +39,13 @@
             this.readOrdiniCustomerORMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteDB = new System.Windows.Forms.ToolStripButton();
-            this.btnInsertDB = new System.Windows.Forms.ToolStripButton();
-            this.btnUpdateDB = new System.Windows.Forms.ToolStripButton();
+            this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
-            this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -127,9 +124,6 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDB,
-            this.btnDeleteDB,
-            this.btnInsertDB,
-            this.btnUpdateDB,
             this.btnSARIMA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -148,38 +142,15 @@
             this.btnDB.ToolTipText = "Read DB data";
             this.btnDB.Click += new System.EventHandler(this.btnReadDB_Click);
             // 
-            // btnDeleteDB
+            // btnSARIMA
             // 
-            this.btnDeleteDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDeleteDB.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDB.Image")));
-            this.btnDeleteDB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteDB.Name = "btnDeleteDB";
-            this.btnDeleteDB.Size = new System.Drawing.Size(23, 22);
-            this.btnDeleteDB.Text = "toolStripButton1";
-            this.btnDeleteDB.ToolTipText = "Delete DB data";
-            this.btnDeleteDB.Click += new System.EventHandler(this.btnDeleteDB_Click);
-            // 
-            // btnInsertDB
-            // 
-            this.btnInsertDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnInsertDB.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertDB.Image")));
-            this.btnInsertDB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnInsertDB.Name = "btnInsertDB";
-            this.btnInsertDB.Size = new System.Drawing.Size(23, 22);
-            this.btnInsertDB.Text = "toolStripButton1";
-            this.btnInsertDB.ToolTipText = "Insert DB data";
-            this.btnInsertDB.Click += new System.EventHandler(this.btnInsertDB_Click);
-            // 
-            // btnUpdateDB
-            // 
-            this.btnUpdateDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUpdateDB.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateDB.Image")));
-            this.btnUpdateDB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUpdateDB.Name = "btnUpdateDB";
-            this.btnUpdateDB.Size = new System.Drawing.Size(23, 22);
-            this.btnUpdateDB.Text = "toolStripButton1";
-            this.btnUpdateDB.ToolTipText = "Update DB data";
-            this.btnUpdateDB.Click += new System.EventHandler(this.btnUpdateDB_Click);
+            this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSARIMA.Image = ((System.Drawing.Image)(resources.GetObject("btnSARIMA.Image")));
+            this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSARIMA.Name = "btnSARIMA";
+            this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
+            this.btnSARIMA.Text = "ARIMA";
+            this.btnSARIMA.Click += new System.EventHandler(this.btnARIMA_Click);
             // 
             // splitContainer1
             // 
@@ -202,6 +173,8 @@
             // 
             // txtCustomer
             // 
+            this.txtCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomer.Location = new System.Drawing.Point(86, 9);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(192, 21);
@@ -243,17 +216,6 @@
             // 
             this.sqLiteCommandBuilder1.DataAdapter = null;
             this.sqLiteCommandBuilder1.QuoteSuffix = "]";
-            // 
-            // btnSARIMA
-            // 
-            this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSARIMA.Enabled = false;
-            this.btnSARIMA.Image = ((System.Drawing.Image)(resources.GetObject("btnSARIMA.Image")));
-            this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSARIMA.Name = "btnSARIMA";
-            this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
-            this.btnSARIMA.Text = "ARIMA";
-            this.btnSARIMA.Click += new System.EventHandler(this.btnARIMA_Click);
             // 
             // View
             // 
@@ -298,9 +260,6 @@
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDBADOToolStripMenuItem;
         private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
-        private System.Windows.Forms.ToolStripButton btnDeleteDB;
-        private System.Windows.Forms.ToolStripButton btnInsertDB;
-        private System.Windows.Forms.ToolStripButton btnUpdateDB;
         private System.Windows.Forms.ToolStripMenuItem readDBORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readOrdiniCustomerORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnSARIMA;

@@ -2,8 +2,8 @@
 # To be called via command line / C# (PythonRunner).
 import sys
 import os
-#local_path = sys.argv[1]
-local_path = 'D:/loren/Documents/workspace/SSD/DSS19/PYScripts/prog'
+local_path = sys.argv[1]
+#local_path = 'D:/loren/Documents/workspace/SSD/DSS19/PYScripts/prog'
 os.chdir(local_path) 
 
 import common
@@ -22,10 +22,10 @@ plt.figure(figsize=(7, 5))
 plt.rc('axes', prop_cycle=(cycler('color', common.COLOR_MAP)))
 
 # parse command line arguments
-#db_path = sys.argv[2]
-db_path    = "D:/loren/Documents/workspace/SSD/DSS19/DB/ordiniMI2018.sqlite"
-#customers = sys.argv[3]
-customers  =  "'cust4','cust12','cust13','cust50','cust29','cust11','cust20','cust22','cust1','cust6','cust30','cust46'"
+db_path = sys.argv[2]
+#db_path    = "D:/loren/Documents/workspace/SSD/DSS19/DB/ordiniMI2018.sqlite"
+customers = sys.argv[3]
+#customers  =  "'cust4','cust12','cust13','cust50','cust29','cust11','cust20','cust22','cust1','cust6','cust30','cust46'"
 
 # Get the orders from the database.
 dfs = common.load_orders(db_path, customers)
