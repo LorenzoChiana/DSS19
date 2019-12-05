@@ -52,6 +52,10 @@ customers = sys.argv[3]
 
 df = load_orders(dbfile,customers)
 
+df = load_orders(dbfile,customers)
+
+print("Orders:", *(df.quant.values))
+
 # !pip3 install pyramid-arima
 import pyramid.arima as pm
 from statsmodels.tsa.arima_model import ARIMA

@@ -40,6 +40,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
             this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
+            this.btnForecasts = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.lblCustomer = new System.Windows.Forms.Label();
@@ -124,7 +125,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDB,
-            this.btnSARIMA});
+            this.btnSARIMA,
+            this.btnForecasts});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(847, 25);
@@ -151,6 +153,16 @@
             this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
             this.btnSARIMA.Text = "ARIMA";
             this.btnSARIMA.Click += new System.EventHandler(this.btnARIMA_Click);
+            // 
+            // btnForecasts
+            // 
+            this.btnForecasts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnForecasts.Image = ((System.Drawing.Image)(resources.GetObject("btnForecasts.Image")));
+            this.btnForecasts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnForecasts.Name = "btnForecasts";
+            this.btnForecasts.Size = new System.Drawing.Size(23, 22);
+            this.btnForecasts.Text = "Forecasts";
+            this.btnForecasts.Click += new System.EventHandler(this.btnForecasts_Click);
             // 
             // splitContainer1
             // 
@@ -263,6 +275,7 @@
         private System.Windows.Forms.ToolStripMenuItem readDBORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readOrdiniCustomerORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnSARIMA;
+        private System.Windows.Forms.ToolStripButton btnForecasts;
     }
 }
 

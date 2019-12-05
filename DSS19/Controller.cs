@@ -87,7 +87,7 @@ namespace DSS19
         {
             int numSerie = 12; // numero di customer che voglio prendere a caso
             string strCustomers = P.readCustomerListORM(dbPath, numSerie);
-            Trace.WriteLine($"Clienti: { strCustomers}");
+            Trace.WriteLine($"Clienti: {strCustomers}");
             return strCustomers;
         }
 
@@ -127,6 +127,60 @@ namespace DSS19
                 Trace.WriteLine(e.ToString());
                 return null;
             }
+        }
+
+        public async Task<string> arimaForecasts(string dbPath)
+        {
+            Trace.WriteLine("getting forecast's values ... ");
+            pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
+
+            double fcast = -1;
+            string cust;
+            string strSerie;
+
+            for (int i = 0; i<52; i++)
+            {
+                cust = $"'cust{i + 1}'";
+
+                try
+                {
+                    string list = await pyRunner.getStringsAsync(
+                        pythonScriptsPath,
+                        "arima_forecast.py",
+                        pythonScriptsPath,
+                        dbPath,
+                        cust);
+
+                    string[] lines = list.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                    foreach (string s in lines)
+                    {
+                        if (s.StartsWith("Orders"))
+                        {
+                            Trace.WriteLine($"Ordini cliente {cust}: {s.Substring(("Orders:").Length)}");
+                        }
+
+                        if (s.StartsWith("Actual"))
+                        {
+                            fcast = double.Parse(s.Substring(s.LastIndexOf("forecast") + ("forecast").Length),
+                                System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                    }
+                    Trace.WriteLine("Forecast value: " + fcast);
+
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e.ToString());
+                    return null;
+                }
+            }
+                return "";
+        }
+
+        private string getLine(string text, int lineNo)
+        {
+            string[] lines = text.Replace("\r", "").Split('\n');
+            return lines.Length >= lineNo ? lines[lineNo - 1] : null;
         }
 
         public async Task<Bitmap> arimaCustomer(string dbPath, string cust)
