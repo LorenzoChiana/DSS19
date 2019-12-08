@@ -12,6 +12,7 @@ namespace DSS19
 {
     class Controller
     {
+        public const int NUMCUST = 52;
         private Persistence P = new Persistence();
         string connectionString, factory, dbPath, pythonPath, pythonScriptsPath, strCustomers;
         PythonRunner pyRunner;

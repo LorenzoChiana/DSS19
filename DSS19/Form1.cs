@@ -123,7 +123,7 @@ namespace DSS19
         {
             //string arimaForecasts = await C.arimaForecasts(dbOrdiniPath);
             Trace.WriteLine("Getting forecast's values ... ");
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i < Controller.NUMCUST; i++)
             {
                 double val = await C.arimaForecasts(dbOrdiniPath, i);
                 Trace.WriteLine("Forecast value: " + val.ToString());
