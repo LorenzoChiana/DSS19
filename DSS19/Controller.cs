@@ -15,6 +15,7 @@ namespace DSS19
         private Persistence P = new Persistence();
         string connectionString, factory, dbPath, pythonPath, pythonScriptsPath, strCustomers;
         PythonRunner pyRunner;
+        List<double> forecastsList = new List<double>();
 
         public Controller(/*string _dbPath, */string _pyPath, string _pyScriptsPath)
         {
@@ -129,14 +130,53 @@ namespace DSS19
             }
         }
 
-        public async Task<string> arimaForecasts(string dbPath)
+        public async Task<double> arimaForecasts(string dbPath, int index)
         {
-            Trace.WriteLine("getting forecast's values ... ");
             pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
 
             double fcast = -1;
             string cust;
-            string strSerie;
+                cust = $"'cust{index + 1}'";
+
+                try
+                {
+                    string list = await pyRunner.getStringsAsync(
+                        pythonScriptsPath,
+                        "arima_forecast.py",
+                        pythonScriptsPath,
+                        dbPath,
+                        cust);
+
+                    string[] lines = list.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                    foreach (string s in lines)
+                    {
+                        if (s.StartsWith("Orders"))
+                        {
+                            Trace.WriteLine($"Ordini cliente {cust}: {s.Substring(("Orders:").Length)}");
+                        }
+
+                        if (s.StartsWith("Actual"))
+                        {
+                            fcast = double.Parse(s.Substring(s.LastIndexOf("forecast") + ("forecast").Length),
+                                System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e.ToString());
+                    return -1;
+                }
+            forecastsList.Add(fcast);
+            return fcast;
+        }
+
+        public async Task<string> arimaForecasts(string dbPath)
+        {
+            pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
+
+            double fcast = -1;
+            string cust;
 
             for (int i = 0; i<52; i++)
             {
@@ -165,8 +205,8 @@ namespace DSS19
                                 System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
+                    forecastsList.Add(fcast);
                     Trace.WriteLine("Forecast value: " + fcast);
-
                 }
                 catch (Exception e)
                 {
@@ -174,7 +214,7 @@ namespace DSS19
                     return null;
                 }
             }
-                return "";
+            return forecastsList.ToString();
         }
 
         private string getLine(string text, int lineNo)

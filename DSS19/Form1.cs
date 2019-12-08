@@ -18,8 +18,7 @@ namespace DSS19
         TextBoxTraceListener _textBoxListener; // variabile classe Form
         string dbOrdiniPath, pythonPath, pythonScriptPath;
         Bitmap bmp;
-        float forecast = 0;
-
+     
         public View()
         {
             InitializeComponent();
@@ -122,8 +121,18 @@ namespace DSS19
 
         private async void btnForecasts_Click(object sender, EventArgs e)
         {
-            string prova = await C.arimaForecasts(dbOrdiniPath);
-            //Trace.WriteLine("Forecast value: ");
+            //string arimaForecasts = await C.arimaForecasts(dbOrdiniPath);
+            Trace.WriteLine("Getting forecast's values ... ");
+            for (int i = 0; i < 52; i++)
+            {
+                double val = await C.arimaForecasts(dbOrdiniPath, i);
+                Trace.WriteLine("Forecast value: " + val.ToString());
+            }
+        }
+
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)

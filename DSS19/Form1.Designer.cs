@@ -191,6 +191,7 @@
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.Size = new System.Drawing.Size(192, 21);
             this.txtCustomer.TabIndex = 2;
+            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
             // 
             // lblCustomer
             // 
