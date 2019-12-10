@@ -107,32 +107,48 @@ namespace DSS19
             updateDB();
         }
 
-        private async void ARIMAClient(string cust)
+        private async void SARIMAClient(string cust)
         {
             //C.readDB(txtCustomer.Text);
             bmp = await C.arimaCustomer(dbOrdiniPath, cust);
             pictureBox1.Image = bmp;
         }
 
-        private void btnARIMA_Click(object sender, EventArgs e)
+        private void btnSARIMA_Click(object sender, EventArgs e)
         {
-            ARIMAClient("'" + txtCustomer.Text + "'");
+            SARIMAClient("'" + txtCustomer.Text + "'");
         }
 
         private async void btnForecasts_Click(object sender, EventArgs e)
         {
-            //string arimaForecasts = await C.arimaForecasts(dbOrdiniPath);
             Trace.WriteLine("Getting forecast's values ... ");
-            for (int i = 0; i < Controller.NUMCUST; i++)
+            string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
+            /*for (int i = 0; i < Controller.NUMCUST; i++)
             {
-                double val = await C.arimaForecasts(dbOrdiniPath, i);
+                double val = await C.sarimaForecasts(dbOrdiniPath, i);
                 Trace.WriteLine("Forecast value: " + val.ToString());
-            }
+            }*/
         }
 
         private void txtCustomer_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void readDBRandomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            readDB();
+        }
+
+        private void sARIMAForecastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SARIMAClient("'" + txtCustomer.Text + "'");
+        }
+
+        private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Trace.WriteLine("Getting forecast's values ... ");
+            string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
         }
 
         private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)

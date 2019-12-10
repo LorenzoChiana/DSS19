@@ -31,12 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteDBADOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateDBADOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDBORMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readOrdiniCustomerORMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readDBRandomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sARIMAForecastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forecastsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
             this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
@@ -69,57 +66,33 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readDBToolStripMenuItem,
-            this.deleteDBADOToolStripMenuItem,
-            this.insertToolStripMenuItem,
-            this.updateDBADOToolStripMenuItem,
-            this.readDBORMToolStripMenuItem,
-            this.readOrdiniCustomerORMToolStripMenuItem});
+            this.readDBRandomToolStripMenuItem,
+            this.sARIMAForecastToolStripMenuItem,
+            this.forecastsToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // readDBToolStripMenuItem
+            // readDBRandomToolStripMenuItem
             // 
-            this.readDBToolStripMenuItem.Name = "readDBToolStripMenuItem";
-            this.readDBToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.readDBToolStripMenuItem.Text = "Read DB (ADO)";
-            this.readDBToolStripMenuItem.Click += new System.EventHandler(this.readDBToolStripMenuItem_Click);
+            this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readDBRandomToolStripMenuItem.Text = "Read DB random";
+            this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
-            // deleteDBADOToolStripMenuItem
+            // sARIMAForecastToolStripMenuItem
             // 
-            this.deleteDBADOToolStripMenuItem.Name = "deleteDBADOToolStripMenuItem";
-            this.deleteDBADOToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.deleteDBADOToolStripMenuItem.Text = "Delete DB (ADO)";
-            this.deleteDBADOToolStripMenuItem.Click += new System.EventHandler(this.deleteDBADOToolStripMenuItem_Click);
+            this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
+            this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
-            // insertToolStripMenuItem
+            // forecastsToolStripMenuItem
             // 
-            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.insertToolStripMenuItem.Text = "Insert DB (ADO)";
-            this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
-            // 
-            // updateDBADOToolStripMenuItem
-            // 
-            this.updateDBADOToolStripMenuItem.Name = "updateDBADOToolStripMenuItem";
-            this.updateDBADOToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.updateDBADOToolStripMenuItem.Text = "Update DB (ADO)";
-            this.updateDBADOToolStripMenuItem.Click += new System.EventHandler(this.updateDBADOToolStripMenuItem_Click);
-            // 
-            // readDBORMToolStripMenuItem
-            // 
-            this.readDBORMToolStripMenuItem.Name = "readDBORMToolStripMenuItem";
-            this.readDBORMToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.readDBORMToolStripMenuItem.Text = "Read DB clienti (ORM)";
-            this.readDBORMToolStripMenuItem.Click += new System.EventHandler(this.readDBORMToolStripMenuItem_Click);
-            // 
-            // readOrdiniCustomerORMToolStripMenuItem
-            // 
-            this.readOrdiniCustomerORMToolStripMenuItem.Name = "readOrdiniCustomerORMToolStripMenuItem";
-            this.readOrdiniCustomerORMToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.readOrdiniCustomerORMToolStripMenuItem.Text = "Read DB ordini cliente (ORM)";
-            this.readOrdiniCustomerORMToolStripMenuItem.Click += new System.EventHandler(this.readOrdiniCustomerORMToolStripMenuItem_Click);
+            this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forecastsToolStripMenuItem.Text = "Forecasts";
+            this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -151,8 +124,8 @@
             this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSARIMA.Name = "btnSARIMA";
             this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
-            this.btnSARIMA.Text = "ARIMA";
-            this.btnSARIMA.Click += new System.EventHandler(this.btnARIMA_Click);
+            this.btnSARIMA.Text = "SARIMA";
+            this.btnSARIMA.Click += new System.EventHandler(this.btnSARIMA_Click);
             // 
             // btnForecasts
             // 
@@ -261,7 +234,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readDBToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnDB;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -269,14 +241,12 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.Label lblCustomer;
-        private System.Windows.Forms.ToolStripMenuItem deleteDBADOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateDBADOToolStripMenuItem;
         private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
-        private System.Windows.Forms.ToolStripMenuItem readDBORMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readOrdiniCustomerORMToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnSARIMA;
         private System.Windows.Forms.ToolStripButton btnForecasts;
+        private System.Windows.Forms.ToolStripMenuItem readDBRandomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sARIMAForecastToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
     }
 }
 

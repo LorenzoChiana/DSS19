@@ -172,14 +172,14 @@ namespace DSS19
             return fcast;
         }
 
-        public async Task<string> arimaForecasts(string dbPath)
+        public async Task<string> sarimaForecasts(string dbPath)
         {
             pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
 
             double fcast = -1;
             string cust;
 
-            for (int i = 0; i<52; i++)
+            for (int i = 0; i < NUMCUST; i++)
             {
                 cust = $"'cust{i + 1}'";
 
@@ -206,8 +206,9 @@ namespace DSS19
                                 System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
+                    fcast = Math.Round(fcast, 2, MidpointRounding.AwayFromZero);
                     forecastsList.Add(fcast);
-                    Trace.WriteLine("Forecast value: " + fcast);
+                    Trace.WriteLine(String.Format("Forecast value: {0:0.00}", fcast));
                 }
                 catch (Exception e)
                 {
@@ -215,7 +216,7 @@ namespace DSS19
                     return null;
                 }
             }
-            return forecastsList.ToString();
+            return string.Join(" ", forecastsList);
         }
 
         private string getLine(string text, int lineNo)
