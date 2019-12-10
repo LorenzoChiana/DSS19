@@ -174,6 +174,7 @@ namespace DSS19
 
         public async Task<string> sarimaForecasts(string dbPath)
         {
+            Trace.WriteLine("Getting forecast's values ... ");
             pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
 
             double fcast = -1;
@@ -227,7 +228,7 @@ namespace DSS19
 
         public async Task<Bitmap> arimaCustomer(string dbPath, string cust)
         {
-            Trace.WriteLine("getting the orders chart ... ");
+            Trace.WriteLine("Getting the " + cust + "'s orders chart ... ");
             pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
 
             try

@@ -173,7 +173,7 @@ namespace PyGAP2019
             }
             catch (Exception)
             {
-                Trace.WriteLine("Wrong input user.");
+                Trace.WriteLine("Wrong input user: please, insert the correct user in the textbox.");
                 return null;
             }
 

@@ -26,19 +26,11 @@ namespace DSS19
             _textBoxListener = new TextBoxTraceListener(txtConsole); 
             Trace.Listeners.Add(_textBoxListener);
 
-            /*string dbPath = "";
-            OpenFileDialog OFD = new OpenFileDialog();
-            if (OFD.ShowDialog() == DialogResult.OK)
-            {
-                dbPath = OFD.FileName;
-                txtConsole.AppendText("Sqlite file name: " + dbPath + Environment.NewLine);
-            }*/
-
             dbOrdiniPath = ConfigurationManager.AppSettings["dbOrdiniFile"];
             pythonPath = ConfigurationManager.AppSettings["pythonPath"];
             pythonScriptPath = ConfigurationManager.AppSettings["pyScripts"];
 
-            C = new Controller(/*dbOrdiniPath, */pythonPath, pythonScriptPath);
+            C = new Controller(pythonPath, pythonScriptPath);
         }
 
 
@@ -121,13 +113,14 @@ namespace DSS19
 
         private async void btnForecasts_Click(object sender, EventArgs e)
         {
-            Trace.WriteLine("Getting forecast's values ... ");
             string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
-            /*for (int i = 0; i < Controller.NUMCUST; i++)
-            {
-                double val = await C.sarimaForecasts(dbOrdiniPath, i);
-                Trace.WriteLine("Forecast value: " + val.ToString());
-            }*/
+            /* //Alternative:
+             * for (int i = 0; i < Controller.NUMCUST; i++)
+             * {
+             *      double val = await C.sarimaForecasts(dbOrdiniPath, i);
+             *      Trace.WriteLine("Forecast value: " + val.ToString());
+             *  }
+             */
         }
 
         private void txtCustomer_TextChanged(object sender, EventArgs e)
@@ -147,7 +140,6 @@ namespace DSS19
 
         private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Trace.WriteLine("Getting forecast's values ... ");
             string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
         }
 

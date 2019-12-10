@@ -76,21 +76,21 @@
             // readDBRandomToolStripMenuItem
             // 
             this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
-            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.readDBRandomToolStripMenuItem.Text = "Read DB random";
             this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
             // sARIMAForecastToolStripMenuItem
             // 
             this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
-            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
             // forecastsToolStripMenuItem
             // 
             this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.forecastsToolStripMenuItem.Text = "Forecasts";
             this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
             // 
