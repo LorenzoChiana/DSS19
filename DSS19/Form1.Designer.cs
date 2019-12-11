@@ -44,6 +44,7 @@
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
+            this.btnOptimization = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -99,7 +100,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDB,
             this.btnSARIMA,
-            this.btnForecasts});
+            this.btnForecasts,
+            this.btnOptimization});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(847, 25);
@@ -203,6 +205,16 @@
             this.sqLiteCommandBuilder1.DataAdapter = null;
             this.sqLiteCommandBuilder1.QuoteSuffix = "]";
             // 
+            // btnOptimization
+            // 
+            this.btnOptimization.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnOptimization.Image = ((System.Drawing.Image)(resources.GetObject("btnOptimization.Image")));
+            this.btnOptimization.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOptimization.Name = "btnOptimization";
+            this.btnOptimization.Size = new System.Drawing.Size(23, 22);
+            this.btnOptimization.Text = "Optimization";
+            this.btnOptimization.Click += new System.EventHandler(this.btnOptimization_Click);
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -247,6 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem readDBRandomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sARIMAForecastToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnOptimization;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Configuration;
 using System.Drawing;
 using PyGAP2019;
+using System.IO;
 
 namespace DSS19
 {
@@ -16,6 +17,7 @@ namespace DSS19
         private Persistence P = new Persistence();
         string connectionString, factory, dbPath, pythonPath, pythonScriptsPath, strCustomers;
         PythonRunner pyRunner;
+        GAPclass GAP;
         List<double> forecastsList = new List<double>();
 
         public Controller(/*string _dbPath, */string _pyPath, string _pyScriptsPath)
@@ -24,6 +26,7 @@ namespace DSS19
             this.pythonPath = _pyPath;
             this.pythonScriptsPath = _pyScriptsPath;
             P = new Persistence();
+            GAP = new GAPclass();
             pyRunner = new PythonRunner(pythonPath, 20000);
         }
 
@@ -83,6 +86,11 @@ namespace DSS19
         {
             Trace.WriteLine("Controller DeleteDB");
             P.deleteDB(factory, custid);
+        }
+
+        public void readGAPinstance(string dbPath)
+        {
+            P.readGAPinstance(dbPath, GAP);
         }
 
         public string readCustomerListORM()
@@ -172,7 +180,7 @@ namespace DSS19
             return fcast;
         }
 
-        public async Task<string> sarimaForecasts(string dbPath)
+        public async Task sarimaForecasts(string dbPath)
         {
             Trace.WriteLine("Getting forecast's values ... ");
             pythonScriptsPath = System.IO.Path.GetFullPath(pythonScriptsPath);
@@ -205,6 +213,7 @@ namespace DSS19
                         {
                             fcast = double.Parse(s.Substring(s.LastIndexOf("forecast") + ("forecast").Length),
                                 System.Globalization.CultureInfo.InvariantCulture);
+                            GAP.req[i] = (int) Math.Round(fcast);
                         }
                     }
                     fcast = Math.Round(fcast, 2, MidpointRounding.AwayFromZero);
@@ -214,10 +223,8 @@ namespace DSS19
                 catch (Exception e)
                 {
                     Trace.WriteLine(e.ToString());
-                    return null;
                 }
             }
-            return string.Join(" ", forecastsList);
         }
 
         private string getLine(string text, int lineNo)
@@ -246,6 +253,28 @@ namespace DSS19
                 Trace.WriteLine(e.ToString());
                 return null;
             }
+        }
+
+        public async void optimizeGAP(string dbPath)
+        {
+            readGAPinstance(dbPath);
+
+            if (File.Exists("GAPreq.dat")) 
+            {
+                string[] txtData = File.ReadAllLines("GAPreq.dat");
+                GAP.req = Array.ConvertAll<string, int>(txtData, new Converter<string, int>(i => int.Parse(i)));
+            }
+            else
+            {
+                await sarimaForecasts(dbPath);
+                File.WriteAllLines("GAPreq.dat", GAP.req.Select(x => x.ToString()));
+            }
+
+            double zub = GAP.simpleContruct();
+            Trace.WriteLine($"Constructive, zub = {zub}");
+            zub = GAP.opt10(GAP.c);
+            Trace.WriteLine($"Local search, zub = {zub}");
+
         }
     }
 }

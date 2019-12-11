@@ -113,7 +113,7 @@ namespace DSS19
 
         private async void btnForecasts_Click(object sender, EventArgs e)
         {
-            string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
+            await C.sarimaForecasts(dbOrdiniPath);
             /* //Alternative:
              * for (int i = 0; i < Controller.NUMCUST; i++)
              * {
@@ -140,7 +140,12 @@ namespace DSS19
 
         private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string sarimaForecasts = await C.sarimaForecasts(dbOrdiniPath);
+            await C.sarimaForecasts(dbOrdiniPath);
+        }
+
+        private void btnOptimization_Click(object sender, EventArgs e)
+        {
+            C.optimizeGAP(dbOrdiniPath);
         }
 
         private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)
