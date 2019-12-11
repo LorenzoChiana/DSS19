@@ -34,12 +34,6 @@ namespace DSS19
         }
 
 
-
-        private void readDBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            readDB();
-        }
-
         private void btnReadDB_Click(object sender, EventArgs e)
         {
             readDB();
@@ -47,61 +41,14 @@ namespace DSS19
 
         private async void readDB()
         {
-            //C.readDB(txtCustomer.Text);
             C.readClientiDB(dbOrdiniPath);
             bmp = await C.readCustomerOrdersChart(dbOrdiniPath);
             pictureBox1.Image = bmp;
-            btnSARIMA.Enabled = true;
         }
 
-        private void deleteDBADOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleteDB();
-        }
-
-        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            insertDB();
-        }
-
-        private void updateDBADOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            updateDB();
-        }
-
-        private void btnDeleteDB_Click(object sender, EventArgs e)
-        {
-            deleteDB();
-        }
-
-        private void deleteDB()
-        {
-            C.deleteDB(txtCustomer.Text);
-        }
-
-        private void insertDB()
-        {
-            C.insertDB(txtCustomer.Text);
-        }
-
-        private void updateDB()
-        {
-            C.updateDB(txtCustomer.Text);
-        }
-
-        private void btnInsertDB_Click(object sender, EventArgs e)
-        {
-            insertDB();
-        }
-
-        private void btnUpdateDB_Click(object sender, EventArgs e)
-        {
-            updateDB();
-        }
 
         private async void SARIMAClient(string cust)
         {
-            //C.readDB(txtCustomer.Text);
             bmp = await C.arimaCustomer(dbOrdiniPath, cust);
             pictureBox1.Image = bmp;
         }
@@ -113,14 +60,8 @@ namespace DSS19
 
         private async void btnForecasts_Click(object sender, EventArgs e)
         {
+            //C.readGAPinstance(dbOrdiniPath);
             await C.sarimaForecasts(dbOrdiniPath);
-            /* //Alternative:
-             * for (int i = 0; i < Controller.NUMCUST; i++)
-             * {
-             *      double val = await C.sarimaForecasts(dbOrdiniPath, i);
-             *      Trace.WriteLine("Forecast value: " + val.ToString());
-             *  }
-             */
         }
 
         private void txtCustomer_TextChanged(object sender, EventArgs e)
@@ -140,6 +81,7 @@ namespace DSS19
 
         private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //C.readGAPinstance(dbOrdiniPath);
             await C.sarimaForecasts(dbOrdiniPath);
         }
 
@@ -148,15 +90,11 @@ namespace DSS19
             C.optimizeGAP(dbOrdiniPath);
         }
 
-        private void readDBORMToolStripMenuItem_Click(object sender, EventArgs e)
+        private void optimizationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            C.readCustomerListORM();
+            C.optimizeGAP(dbOrdiniPath);
         }
 
-        private void readOrdiniCustomerORMToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            C.readCustomerListORM(txtCustomer.Text);
-        }
     }
 
     public class TextBoxTraceListener : TraceListener

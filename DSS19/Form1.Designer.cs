@@ -38,13 +38,14 @@
             this.btnDB = new System.Windows.Forms.ToolStripButton();
             this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.btnForecasts = new System.Windows.Forms.ToolStripButton();
+            this.btnOptimization = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
-            this.btnOptimization = new System.Windows.Forms.ToolStripButton();
+            this.optimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -69,7 +70,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.readDBRandomToolStripMenuItem,
             this.sARIMAForecastToolStripMenuItem,
-            this.forecastsToolStripMenuItem});
+            this.forecastsToolStripMenuItem,
+            this.optimizationToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -77,21 +79,21 @@
             // readDBRandomToolStripMenuItem
             // 
             this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
-            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.readDBRandomToolStripMenuItem.Text = "Read DB random";
             this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
             // sARIMAForecastToolStripMenuItem
             // 
             this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
-            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
             // forecastsToolStripMenuItem
             // 
             this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.forecastsToolStripMenuItem.Text = "Forecasts";
             this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
             // 
@@ -138,6 +140,16 @@
             this.btnForecasts.Size = new System.Drawing.Size(23, 22);
             this.btnForecasts.Text = "Forecasts";
             this.btnForecasts.Click += new System.EventHandler(this.btnForecasts_Click);
+            // 
+            // btnOptimization
+            // 
+            this.btnOptimization.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnOptimization.Image = ((System.Drawing.Image)(resources.GetObject("btnOptimization.Image")));
+            this.btnOptimization.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOptimization.Name = "btnOptimization";
+            this.btnOptimization.Size = new System.Drawing.Size(23, 22);
+            this.btnOptimization.Text = "Optimization";
+            this.btnOptimization.Click += new System.EventHandler(this.btnOptimization_Click);
             // 
             // splitContainer1
             // 
@@ -205,15 +217,12 @@
             this.sqLiteCommandBuilder1.DataAdapter = null;
             this.sqLiteCommandBuilder1.QuoteSuffix = "]";
             // 
-            // btnOptimization
+            // optimizationToolStripMenuItem
             // 
-            this.btnOptimization.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOptimization.Image = ((System.Drawing.Image)(resources.GetObject("btnOptimization.Image")));
-            this.btnOptimization.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOptimization.Name = "btnOptimization";
-            this.btnOptimization.Size = new System.Drawing.Size(23, 22);
-            this.btnOptimization.Text = "Optimization";
-            this.btnOptimization.Click += new System.EventHandler(this.btnOptimization_Click);
+            this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
+            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optimizationToolStripMenuItem.Text = "Optimization";
+            this.optimizationToolStripMenuItem.Click += new System.EventHandler(this.optimizationToolStripMenuItem_Click);
             // 
             // View
             // 
@@ -260,6 +269,7 @@
         private System.Windows.Forms.ToolStripMenuItem sARIMAForecastToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnOptimization;
+        private System.Windows.Forms.ToolStripMenuItem optimizationToolStripMenuItem;
     }
 }
 

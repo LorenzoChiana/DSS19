@@ -90,6 +90,7 @@ namespace DSS19
                         capres[isol] += req[j];
                         z -= (c[isol, j] - c[i, j]);
                         if (z < zub) zub = z;
+                        j = 0;
                         break;
                     }
                 }
