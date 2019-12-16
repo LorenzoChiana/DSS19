@@ -46,6 +46,29 @@ namespace DSS19
 
         }
 
+        public string readCutomerList(string dbpath)
+        {
+            List<string> lstOrdini;
+            string ret = "Error reading DB";
+            try
+            {
+                //var ctx = new SQLiteDatabaseContext(dbpath);
+                using (var ctx = new SQLiteDatabaseContext(dbpath))
+                {
+                    lstOrdini = ctx.Database.SqlQuery<string>("SELECT distinct customer from ordini").ToList();
+                }
+
+                ret = string.Join(",", lstOrdini);
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"Error: {ex.Message}");
+            }
+
+            return ret;
+
+        }
+
         // Reads an instance from the db
         public void readGAPinstance(string dbpath, GAPclass G)
         {

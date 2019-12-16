@@ -15,7 +15,7 @@ namespace DSS19
     {
         public const int NUMCUST = 52;
         private Persistence P = new Persistence();
-        private string pythonPath, pythonScriptsPath, strCustomers;
+        private string pythonPath, pythonScriptsPath, strCustomers, strRandCustomers;
         private PythonRunner pyRunner;
         private GAPclass GAP;
         private List<double> forecastsList = new List<double>();
@@ -36,10 +36,16 @@ namespace DSS19
 
         public string readClientiDB(string dbPath)
         {
-            int numSerie = 12;
-            strCustomers = P.readCutomerList(dbPath, numSerie);
-            Trace.WriteLine($"Clienti: {strCustomers}");
+            strCustomers = P.readCutomerList(dbPath);
             return strCustomers;
+        }
+
+        public string readRandClientiDB(string dbPath)
+        {
+            int numSerie = 12;
+            strRandCustomers = P.readCutomerList(dbPath, numSerie);
+            Trace.WriteLine($"Clienti: {strRandCustomers}");
+            return strRandCustomers;
         }
 
         public async Task<Bitmap> readCustomerOrdersChart(string dbPath)
@@ -54,7 +60,7 @@ namespace DSS19
                     "chartOrders.py",
                     pythonScriptsPath,
                     dbPath,
-                    strCustomers);
+                    strRandCustomers);
                 return bmp;
             }
             catch (Exception e)

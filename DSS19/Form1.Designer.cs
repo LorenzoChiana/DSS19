@@ -28,24 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDBRandomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sARIMAForecastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forecastsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
             this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.btnForecasts = new System.Windows.Forms.ToolStripButton();
             this.btnOptimization = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.comboBoxClients = new System.Windows.Forms.ComboBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
-            this.optimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -53,6 +55,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,23 +82,30 @@
             // readDBRandomToolStripMenuItem
             // 
             this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
-            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.readDBRandomToolStripMenuItem.Text = "Read DB random";
             this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
             // sARIMAForecastToolStripMenuItem
             // 
             this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
-            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
             // forecastsToolStripMenuItem
             // 
             this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.forecastsToolStripMenuItem.Text = "Forecasts";
             this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
+            // 
+            // optimizationToolStripMenuItem
+            // 
+            this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
+            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.optimizationToolStripMenuItem.Text = "Optimization";
+            this.optimizationToolStripMenuItem.Click += new System.EventHandler(this.optimizationToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -124,6 +134,7 @@
             // btnSARIMA
             // 
             this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSARIMA.Enabled = false;
             this.btnSARIMA.Image = ((System.Drawing.Image)(resources.GetObject("btnSARIMA.Image")));
             this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSARIMA.Name = "btnSARIMA";
@@ -159,7 +170,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.txtCustomer);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBoxClients);
             this.splitContainer1.Panel1.Controls.Add(this.lblCustomer);
             this.splitContainer1.Panel1.Controls.Add(this.txtConsole);
             // 
@@ -170,15 +181,17 @@
             this.splitContainer1.SplitterDistance = 281;
             this.splitContainer1.TabIndex = 2;
             // 
-            // txtCustomer
+            // comboBoxClients
             // 
-            this.txtCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.comboBoxClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomer.Location = new System.Drawing.Point(86, 9);
-            this.txtCustomer.Name = "txtCustomer";
-            this.txtCustomer.Size = new System.Drawing.Size(192, 21);
-            this.txtCustomer.TabIndex = 2;
-            this.txtCustomer.TextChanged += new System.EventHandler(this.txtCustomer_TextChanged);
+            this.comboBoxClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClients.FormattingEnabled = true;
+            this.comboBoxClients.Location = new System.Drawing.Point(75, 7);
+            this.comboBoxClients.Name = "comboBoxClients";
+            this.comboBoxClients.Size = new System.Drawing.Size(203, 23);
+            this.comboBoxClients.TabIndex = 2;
             // 
             // lblCustomer
             // 
@@ -204,7 +217,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(562, 472);
@@ -216,13 +231,6 @@
             // 
             this.sqLiteCommandBuilder1.DataAdapter = null;
             this.sqLiteCommandBuilder1.QuoteSuffix = "]";
-            // 
-            // optimizationToolStripMenuItem
-            // 
-            this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
-            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.optimizationToolStripMenuItem.Text = "Optimization";
-            this.optimizationToolStripMenuItem.Click += new System.EventHandler(this.optimizationToolStripMenuItem_Click);
             // 
             // View
             // 
@@ -246,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +269,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox txtConsole;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.Label lblCustomer;
         private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
         private System.Windows.Forms.ToolStripButton btnSARIMA;
@@ -270,6 +278,8 @@
         private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnOptimization;
         private System.Windows.Forms.ToolStripMenuItem optimizationToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBoxClients;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

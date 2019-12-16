@@ -41,9 +41,18 @@ namespace DSS19
 
         private async void readDB()
         {
-            C.readClientiDB(dbOrdiniPath);
+            C.readRandClientiDB(dbOrdiniPath);
+            string strClients = C.readClientiDB(dbOrdiniPath);
             bmp = await C.readCustomerOrdersChart(dbOrdiniPath);
             pictureBox1.Image = bmp;
+            string[] clients = strClients.Split(',');
+
+            foreach (var client in clients)
+            {
+                comboBoxClients.Items.Add(client);
+            }
+            
+            btnSARIMA.Enabled = true;
         }
 
 
@@ -55,7 +64,7 @@ namespace DSS19
 
         private void btnSARIMA_Click(object sender, EventArgs e)
         {
-            SARIMAClient("'" + txtCustomer.Text + "'");
+            SARIMAClient("'" + comboBoxClients.Text + "'");
         }
 
         private async void btnForecasts_Click(object sender, EventArgs e)
@@ -76,7 +85,7 @@ namespace DSS19
 
         private void sARIMAForecastToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SARIMAClient("'" + txtCustomer.Text + "'");
+            SARIMAClient("'" + comboBoxClients.Text + "'");
         }
 
         private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
