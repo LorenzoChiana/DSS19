@@ -51,8 +51,6 @@ namespace DSS19
             {
                 comboBoxClients.Items.Add(client);
             }
-            
-            btnSARIMA.Enabled = true;
         }
 
 
@@ -92,6 +90,12 @@ namespace DSS19
         {
             //C.readGAPinstance(dbOrdiniPath);
             await C.sarimaForecasts(dbOrdiniPath);
+        }
+
+        private void comboBoxClients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnSARIMA.Enabled = true;
+            sARIMAForecastToolStripMenuItem.Enabled = true;
         }
 
         private void btnOptimization_Click(object sender, EventArgs e)

@@ -59,7 +59,7 @@ namespace DSS19
                 }
                 if (ii == m)
                 {
-                    Trace.WriteLine("[SimpleConstruct] Ahi ahi. ii");
+                    Trace.WriteLine("[SimpleConstruct] error. ii");
                 }
             }
             return zub;
@@ -78,7 +78,7 @@ namespace DSS19
                 z += c[sol[j], j];
             }
 
-            for (j = 0; j < n; j++)
+        l0: for (j = 0; j < n; j++)
             {
                 isol = sol[j];
                 for (i = 0; i < m; i++)
@@ -95,8 +95,7 @@ namespace DSS19
                             zub = z;
                             Trace.WriteLine("[1-0 opt] new zub " + zub);
                         }
-                        j = 0;
-                        break;
+                        goto l0;
                     }
                 }
             }
@@ -174,7 +173,7 @@ namespace DSS19
             }
             else
             { 
-                Trace.WriteLine("Tabu search: fine");
+                Trace.WriteLine("Tabu search: end");
             }
 
             double zcheck = 0;
@@ -186,7 +185,7 @@ namespace DSS19
 
             if (Math.Abs(zcheck - z) > EPS)
             {
-                System.Windows.Forms.MessageBox.Show("[tabu search] Ahi ahi");
+                System.Windows.Forms.MessageBox.Show("[tabu search] error");
             }
 
             return zub;

@@ -82,28 +82,29 @@
             // readDBRandomToolStripMenuItem
             // 
             this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
-            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.readDBRandomToolStripMenuItem.Text = "Read DB random";
             this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
             // sARIMAForecastToolStripMenuItem
             // 
+            this.sARIMAForecastToolStripMenuItem.Enabled = false;
             this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
-            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
             // forecastsToolStripMenuItem
             // 
             this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.forecastsToolStripMenuItem.Text = "Forecasts";
             this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
             // 
             // optimizationToolStripMenuItem
             // 
             this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
-            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.optimizationToolStripMenuItem.Text = "Optimization";
             this.optimizationToolStripMenuItem.Click += new System.EventHandler(this.optimizationToolStripMenuItem_Click);
             // 
@@ -192,15 +193,16 @@
             this.comboBoxClients.Name = "comboBoxClients";
             this.comboBoxClients.Size = new System.Drawing.Size(203, 23);
             this.comboBoxClients.TabIndex = 2;
+            this.comboBoxClients.SelectedIndexChanged += new System.EventHandler(this.comboBoxClients_SelectedIndexChanged);
             // 
             // lblCustomer
             // 
             this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(12, 9);
+            this.lblCustomer.Location = new System.Drawing.Point(10, 10);
             this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(57, 15);
+            this.lblCustomer.Size = new System.Drawing.Size(63, 15);
             this.lblCustomer.TabIndex = 1;
-            this.lblCustomer.Text = "Cutomer:";
+            this.lblCustomer.Text = "Customer:";
             // 
             // txtConsole
             // 

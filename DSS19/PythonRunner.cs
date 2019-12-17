@@ -166,16 +166,10 @@ namespace PyGAP2019
                 throw new Exception(errorMessage);
 
             string strBitmap = _outputBuilder.ToString().Trim();
-            try
-            {
-                strBitmap = strBitmap.Substring(strBitmap.IndexOf("b'"));
-                strBitmap = strBitmap.Remove(strBitmap.Length - 4).Trim();
-            }
-            catch (Exception)
-            {
-                Trace.WriteLine("Wrong input user: please, insert the correct user in the textbox.");
-                return null;
-            }
+            
+            strBitmap = strBitmap.Substring(strBitmap.IndexOf("b'"));
+            strBitmap = strBitmap.Remove(strBitmap.Length - 4).Trim();
+            
 
             try
             {
