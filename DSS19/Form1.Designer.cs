@@ -34,12 +34,10 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDBRandomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sARIMAForecastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.forecastsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnDB = new System.Windows.Forms.ToolStripButton();
             this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
-            this.btnForecasts = new System.Windows.Forms.ToolStripButton();
             this.btnOptimization = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBoxClients = new System.Windows.Forms.ComboBox();
@@ -73,7 +71,6 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.readDBRandomToolStripMenuItem,
             this.sARIMAForecastToolStripMenuItem,
-            this.forecastsToolStripMenuItem,
             this.optimizationToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -94,13 +91,6 @@
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
-            // forecastsToolStripMenuItem
-            // 
-            this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.forecastsToolStripMenuItem.Text = "Forecasts";
-            this.forecastsToolStripMenuItem.Click += new System.EventHandler(this.forecastsToolStripMenuItem_Click);
-            // 
             // optimizationToolStripMenuItem
             // 
             this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
@@ -113,7 +103,6 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnDB,
             this.btnSARIMA,
-            this.btnForecasts,
             this.btnOptimization});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -142,16 +131,6 @@
             this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
             this.btnSARIMA.Text = "SARIMA";
             this.btnSARIMA.Click += new System.EventHandler(this.btnSARIMA_Click);
-            // 
-            // btnForecasts
-            // 
-            this.btnForecasts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnForecasts.Image = ((System.Drawing.Image)(resources.GetObject("btnForecasts.Image")));
-            this.btnForecasts.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnForecasts.Name = "btnForecasts";
-            this.btnForecasts.Size = new System.Drawing.Size(23, 22);
-            this.btnForecasts.Text = "Forecasts";
-            this.btnForecasts.Click += new System.EventHandler(this.btnForecasts_Click);
             // 
             // btnOptimization
             // 
@@ -274,10 +253,8 @@
         private System.Windows.Forms.Label lblCustomer;
         private System.Data.SQLite.SQLiteCommandBuilder sqLiteCommandBuilder1;
         private System.Windows.Forms.ToolStripButton btnSARIMA;
-        private System.Windows.Forms.ToolStripButton btnForecasts;
         private System.Windows.Forms.ToolStripMenuItem readDBRandomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sARIMAForecastToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnOptimization;
         private System.Windows.Forms.ToolStripMenuItem optimizationToolStripMenuItem;
         private System.Windows.Forms.ComboBox comboBoxClients;

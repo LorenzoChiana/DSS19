@@ -65,17 +65,6 @@ namespace DSS19
             SARIMAClient("'" + comboBoxClients.Text + "'");
         }
 
-        private async void btnForecasts_Click(object sender, EventArgs e)
-        {
-            //C.readGAPinstance(dbOrdiniPath);
-            await C.sarimaForecasts(dbOrdiniPath);
-        }
-
-        private void txtCustomer_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void readDBRandomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             readDB();
@@ -84,12 +73,6 @@ namespace DSS19
         private void sARIMAForecastToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SARIMAClient("'" + comboBoxClients.Text + "'");
-        }
-
-        private async void forecastsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //C.readGAPinstance(dbOrdiniPath);
-            await C.sarimaForecasts(dbOrdiniPath);
         }
 
         private void comboBoxClients_SelectedIndexChanged(object sender, EventArgs e)

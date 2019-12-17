@@ -158,11 +158,12 @@ namespace DSS19
                 File.WriteAllLines("GAPreq.dat", GAP.req.Select(x => x.ToString()));
             }
 
-            double zub = GAP.simpleContruct();
+            double zub = GAP.simpleConstruct();
             Trace.WriteLine($"Constructive, zub = {zub}");
             zub = GAP.opt10(GAP.c);
             Trace.WriteLine($"Local search, zub = {zub}");
-
+            zub = GAP.tabuSearch(30, 1000);
+            Trace.WriteLine($"Tabu search, zub = {zub}");
         }
     }
 }
