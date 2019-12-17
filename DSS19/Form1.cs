@@ -41,12 +41,17 @@ namespace DSS19
 
         private async void readDB()
         {
-            C.readRandClientiDB(dbOrdiniPath);
-            string strClients = C.readClientiDB(dbOrdiniPath);
-            bmp = await C.readCustomerOrdersChart(dbOrdiniPath);
+            C.readRandClientiDB(dbOrdiniPath);                      //lettura da parte del controller dei clienti in maniera random
+            string strClients = C.readClientiDB(dbOrdiniPath);      //lettura di tutti i clienti da mettere poi nella combo box
+            bmp = await C.readCustomerOrdersChart(dbOrdiniPath);    //grafico degli ordini dei clienti random
             pictureBox1.Image = bmp;
-            string[] clients = strClients.Split(',');
 
+            fillComboBox(strClients);                               //riempio la combo box con tutti i clienti
+        }
+
+        private void fillComboBox(string strClients)
+        {
+            string[] clients = strClients.Split(',');
             foreach (var client in clients)
             {
                 comboBoxClients.Items.Add(client);

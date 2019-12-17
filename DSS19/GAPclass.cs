@@ -103,11 +103,12 @@ namespace DSS19
             return z;
         }
 
-        public double tabuSearch(int tabuTenure, int maxIteration)
+        //esce dai minimi locali andando ad ogni iterazione sulla migliore soluzione dell'intorno non ancora visitata, anche se è peggiore della soluzione corrente.
+        public double tabuSearch(int tabuTenure, int maxIteration) // tabuTenure = stato tabu
         {
             int[] capres = new int[cap.Length];
-            int[,] TL = new Int32[m, n];
-            double z, DeltaMax;
+            int[,] tabuList = new Int32[m, n]; // proibisce di tornare sulle soluzioni già visitate
+            double z, deltaMax;
             int imax, jmax, isol;
 
             Array.Copy(cap, capres, cap.Length);
@@ -123,14 +124,16 @@ namespace DSS19
             {
                 for (int j = 0; j < n; j++)
                 {
-                    TL[i, j] = int.MinValue;
+                    tabuList[i, j] = int.MinValue;
                 }
             }
 
             Trace.WriteLine("Starting tabu search...");
-            for (int iter = 0; iter < maxIteration; iter++)
+            int iter = 0;
+            while(iter < maxIteration)
             {
-                DeltaMax = imax = jmax = int.MinValue;
+                iter++;
+                deltaMax = imax = jmax = int.MinValue;
 
                 for (int j = 0; j < n; j++)
                 {
@@ -142,11 +145,11 @@ namespace DSS19
                             continue;
                         }
 
-                        if ((c[isol, j] - c[i, j]) > DeltaMax && capres[i] >= req[j] && (TL[i, j] + tabuTenure) < iter)
+                        if ((c[isol, j] - c[i, j]) > deltaMax && capres[i] >= req[j] && (tabuList[i, j] + tabuTenure) < iter)
                         {
                             imax = i;
                             jmax = j;
-                            DeltaMax = c[isol, j] - c[i, j];
+                            deltaMax = c[isol, j] - c[i, j];
                         }
                     }
                 }
@@ -155,18 +158,18 @@ namespace DSS19
                 sol[jmax] = imax;
                 capres[imax] -= req[jmax];
                 capres[isol] += req[jmax];
-                z -= DeltaMax;
+                z -= deltaMax;
 
                 if (z < zub)
                 {
                     zub = z;
                 }
 
-                TL[imax, jmax] = iter;
+                tabuList[imax, jmax] = iter;
 
                 if (iter % 100 == 0)
                 {
-                    Trace.WriteLine("[Tabu Search]  z: " + z + ", iter: " + iter + ", deltamax: " + DeltaMax);
+                    Trace.WriteLine("[Tabu Search]  z: " + z + ", iter: " + iter + ", deltamax: " + deltaMax);
                 }
             }
 
