@@ -51,6 +51,7 @@ namespace DSS19
 
         private void fillComboBox(string strClients)
         {
+            comboBoxClients.Items.Clear();
             string[] clients = strClients.Split(',');
             foreach (var client in clients)
             {

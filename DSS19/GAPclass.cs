@@ -128,6 +128,7 @@ namespace DSS19
                 }
             }
 
+            //matrice dove l'assegnazione del client j al server i è ricordato nella iesima riga e j-esima colonna
             Trace.WriteLine("Starting tabu search...");
             int iter = 0;
             while(iter < maxIteration)
@@ -144,8 +145,8 @@ namespace DSS19
                         {
                             continue;
                         }
-
-                        if ((c[isol, j] - c[i, j]) > deltaMax && capres[i] >= req[j] && (tabuList[i, j] + tabuTenure) < iter)
+                        // controllo se la soluzione sia quella che da beneficio migliore, controllo se la soluzione non sfori la capacità, controllo che la soluzione non sia tabu 
+                        if (((c[isol, j] - c[i, j]) > deltaMax) && (capres[i] >= req[j]) && ((tabuList[i, j] + tabuTenure) < iter))
                         {
                             imax = i;
                             jmax = j;
@@ -156,11 +157,13 @@ namespace DSS19
 
                 isol = sol[jmax];
                 sol[jmax] = imax;
+
                 capres[imax] -= req[jmax];
                 capres[isol] += req[jmax];
+
                 z -= deltaMax;
 
-                if (z < zub)
+                if (z < zub) // controllo se la soluzione sia migliorata
                 {
                     zub = z;
                 }
@@ -169,7 +172,7 @@ namespace DSS19
 
                 if (iter % 100 == 0)
                 {
-                    Trace.WriteLine("[Tabu Search]  z: " + z + ", iter: " + iter + ", deltamax: " + deltaMax);
+                    Trace.WriteLine("Iteration: " + iter + ", z: " + z + ", deltamax: " + deltaMax);
                 }
             }
 
