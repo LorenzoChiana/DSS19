@@ -36,15 +36,15 @@
             this.sARIMAForecastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optimizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnDB = new System.Windows.Forms.ToolStripButton();
-            this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.btnOptimization = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBoxClients = new System.Windows.Forms.ComboBox();
             this.lblCustomer = new System.Windows.Forms.Label();
             this.txtConsole = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqLiteCommandBuilder1 = new System.Data.SQLite.SQLiteCommandBuilder();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDB = new System.Windows.Forms.ToolStripButton();
+            this.btnSARIMA = new System.Windows.Forms.ToolStripButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -79,7 +79,7 @@
             // readDBRandomToolStripMenuItem
             // 
             this.readDBRandomToolStripMenuItem.Name = "readDBRandomToolStripMenuItem";
-            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readDBRandomToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.readDBRandomToolStripMenuItem.Text = "Read DB random";
             this.readDBRandomToolStripMenuItem.Click += new System.EventHandler(this.readDBRandomToolStripMenuItem_Click);
             // 
@@ -87,14 +87,14 @@
             // 
             this.sARIMAForecastToolStripMenuItem.Enabled = false;
             this.sARIMAForecastToolStripMenuItem.Name = "sARIMAForecastToolStripMenuItem";
-            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sARIMAForecastToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.sARIMAForecastToolStripMenuItem.Text = "SARIMA Forecast";
             this.sARIMAForecastToolStripMenuItem.Click += new System.EventHandler(this.sARIMAForecastToolStripMenuItem_Click);
             // 
             // optimizationToolStripMenuItem
             // 
             this.optimizationToolStripMenuItem.Name = "optimizationToolStripMenuItem";
-            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.optimizationToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.optimizationToolStripMenuItem.Text = "Optimization";
             this.optimizationToolStripMenuItem.Click += new System.EventHandler(this.optimizationToolStripMenuItem_Click);
             // 
@@ -110,32 +110,10 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnDB
-            // 
-            this.btnDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDB.Image = ((System.Drawing.Image)(resources.GetObject("btnDB.Image")));
-            this.btnDB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDB.Name = "btnDB";
-            this.btnDB.Size = new System.Drawing.Size(23, 22);
-            this.btnDB.Text = "toolStripButton1";
-            this.btnDB.ToolTipText = "Read DB data";
-            this.btnDB.Click += new System.EventHandler(this.btnReadDB_Click);
-            // 
-            // btnSARIMA
-            // 
-            this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSARIMA.Enabled = false;
-            this.btnSARIMA.Image = ((System.Drawing.Image)(resources.GetObject("btnSARIMA.Image")));
-            this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSARIMA.Name = "btnSARIMA";
-            this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
-            this.btnSARIMA.Text = "SARIMA";
-            this.btnSARIMA.Click += new System.EventHandler(this.btnSARIMA_Click);
-            // 
             // btnOptimization
             // 
             this.btnOptimization.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOptimization.Image = ((System.Drawing.Image)(resources.GetObject("btnOptimization.Image")));
+            this.btnOptimization.Image = global::DSS19.Properties.Resources.Center_City_Sign_svg;
             this.btnOptimization.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOptimization.Name = "btnOptimization";
             this.btnOptimization.Size = new System.Drawing.Size(23, 22);
@@ -196,6 +174,11 @@
             this.txtConsole.TabIndex = 0;
             this.txtConsole.WordWrap = false;
             // 
+            // sqLiteCommandBuilder1
+            // 
+            this.sqLiteCommandBuilder1.DataAdapter = null;
+            this.sqLiteCommandBuilder1.QuoteSuffix = "]";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -208,10 +191,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // sqLiteCommandBuilder1
+            // btnDB
             // 
-            this.sqLiteCommandBuilder1.DataAdapter = null;
-            this.sqLiteCommandBuilder1.QuoteSuffix = "]";
+            this.btnDB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDB.Image = ((System.Drawing.Image)(resources.GetObject("btnDB.Image")));
+            this.btnDB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDB.Name = "btnDB";
+            this.btnDB.Size = new System.Drawing.Size(23, 22);
+            this.btnDB.Text = "toolStripButton1";
+            this.btnDB.ToolTipText = "Read DB data";
+            this.btnDB.Click += new System.EventHandler(this.btnReadDB_Click);
+            // 
+            // btnSARIMA
+            // 
+            this.btnSARIMA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSARIMA.Enabled = false;
+            this.btnSARIMA.Image = global::DSS19.Properties.Resources.gaussian__pure;
+            this.btnSARIMA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSARIMA.Name = "btnSARIMA";
+            this.btnSARIMA.Size = new System.Drawing.Size(23, 22);
+            this.btnSARIMA.Text = "SARIMA";
+            this.btnSARIMA.Click += new System.EventHandler(this.btnSARIMA_Click);
             // 
             // View
             // 
